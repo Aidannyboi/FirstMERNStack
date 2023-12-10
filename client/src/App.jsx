@@ -1,5 +1,8 @@
-import React from 'react'
-import PersonForm from './components/PersonForm'
+import React, { useState } from 'react';
+import axios from 'axios';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Main from './view/Main';
+import Detail from './components/Detail';
 import './App.css'
 
 function App() {
@@ -7,7 +10,12 @@ function App() {
   return (
     <>
       <div>
-        <PersonForm/>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<Main/>} path="/home" default />
+            <Route element={<Detail/>} path="/people/:id" />
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
   )

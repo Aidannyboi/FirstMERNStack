@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 
-const PersonForm= () => {
-    const [firstName, setFirstName] = useState("Loading..")
-    const [lastName, setLastName] = useState("Loading..")
+const PersonForm= (props) => {
+    const {people, setPeople} = props;
+    const [firstName, setFirstName] = useState("Loading..");
+    const [lastName, setLastName] = useState("Loading..");
 
     const onSubmitHandler = (e) => {
 
@@ -16,6 +17,7 @@ const PersonForm= () => {
             .then(res=> {
                 console.log(res);
                 console.log(res.data);
+                setPeople([...people, res.data])
             })
             .catch(err=>console.log(err))
     }
