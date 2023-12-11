@@ -31,6 +31,7 @@ const PersonList = (props) => {
                                 {person.lastName}
                             </p>
                             <Link to={'/people/'+ person._id}>{person.firstName}'s Page!</Link>
+                            <Link to={"/people/edit/" + person._id}> Edit </Link>
                         </div>
                     )})
             }
